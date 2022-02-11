@@ -1,0 +1,94 @@
+@font-face {
+	font-family: 'Microsoft Yahei';
+	font-style: normal;
+	font-weight: 900;
+}
+.Countdown{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	/* background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%); */
+	background-image: radial-gradient(#1b2735 0%, #090a0f 100%);
+	/* background:-webkit-linear-gradient(270deg,#B721FF,#21D4FD); */
+	z-index: 999;
+}
+
+.Countdown canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#canvas-number {
+	width: 680px;
+	height: 420px;
+	visibility: hidden;
+}
+
+.Channel{
+	width: 100%;
+	height: 100%; 
+	margin: 0;
+	/* background: #270F34; */
+	overflow: hidden; 
+	display: flex; 
+	align-items: center; 
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #FF3CAC;
+	background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+	/* background:-webkit-linear-gradient(270deg,#B721FF,#21D4FD); */
+	/* background-color: #FF3CAC;
+	background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%); */
+	z-index: 999;
+}
+
+css-doodle {
+	--color: @p(#51eaea, #fffde1, #ff9d76, #FB3569);
+
+	--rule: ( :doodle {
+			@grid: 30x1 / 18vmin;
+			--deg: @p(-180deg, 180deg);
+		}
+
+		:container {
+			perspective: 30vmin;
+		}
+
+		:after, :before {
+			content: '';
+			background: var(--color);
+			@place-cell: @r(100%) @r(100%);
+			@size: @r(6px);
+			@shape: heart;
+		}
+
+		@place-cell: center;
+		@size: 100%;
+
+		box-shadow: @m(2, (0 0 50px var(--color)));
+		background: @m(100, (radial-gradient(var(--color) 50%, transparent 0) @r(-20%, 120%) @r(-20%, 100%) / 1px 1px no-repeat));
+
+		will-change: transform, opacity;
+		animation: scale-up 12s linear infinite;
+		animation-delay: calc(-12s / @size() * @i());
+
+		@keyframes scale-up {
+			0%, 95.01%, 100% {
+				transform: translateZ(0) rotate(0);
+				opacity: 0;
+			}
+
+			10% {
+				opacity: 1;
+			}
+
+			95% {
+				transform: translateZ(35vmin) rotateZ(@var(--deg));
+			}
+		}
+
+	)
+}

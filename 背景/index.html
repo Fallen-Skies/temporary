@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://zoley.me/2/canvasbg/ -->
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>背景canvas + 离屏渲染优化技术</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			html,
+			body {
+				
+				/* background: -webkit-linear-gradient(270deg, #334959 0px, #2A2F33 100%) no-repeat; */
+				/* background: url('https://pic.netbian.com/uploads/allimg/170610/174855-1497088135bff2.jpg') no-repeat; */
+				background-size: cover;
+				background:-webkit-linear-gradient(270deg,#B721FF,#21D4FD);
+				background:-webkit-linear-gradient(270deg,#171716,rgba(19,158,250,0.6),rgba(183,33,250,0.6));
+				/* background:-webkit-linear-gradient(270deg,#171716,rgba(19,158,250,0.6)); */
+				min-height: 100% !important;
+			}
+
+			#canvas {
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: -1;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="1920" height="969"
+			style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: -1;"></canvas>
+		<script>
+			eval(function(p, a, c, k, e, d) {
+				e = function(c) {
+					return (c < a ? "" : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c
+						.toString(36))
+				};
+				if (!''.replace(/^/, String)) {
+					while (c--) d[e(c)] = k[c] || e(c);
+					k = [function(e) {
+						return d[e]
+					}];
+					e = function() {
+						return '\\w+'
+					};
+					c = 1;
+				};
+				while (c--)
+					if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+				return p;
+			}('!f(1m){a 1f;a m={1S:7,1Y:1,1R:1W,1X:0.25,1H:10,1J:0.4,1L:0.5,1K:0.21,1x:5,1v:2k};a D=K.1Z("D"),b=D.1r("2d"),W=K.1V.22,H=K.1V.2l,1y=I,2m,X,V,G=[],k=[];a T=["#2j","#2q","#2r","#2p","#29","#2f","#2e","#2b","#2c"];f E(){}D.1T=W;D.1P=H;D.2g.27="26:28;2a:0;2h:0;2o:0;2n:0;z-2i:-1;";f 1F(N){j(N 24 20){w(a 1s 1e N){m[1s]=N[1s]}}}E.1t.23=f(N){1F(N);w(a i=0;i<m.1R;i++){G[i]=1A 1k(i,8.A(8.s()*W),8.A(8.s()*H),1d)}1z()};f 1k(g,x,y,t){6.g=g;6.x=x;6.y=y;6.t=t;6.P=K.1G("D");6.p=6.P.1r("2d");6.r=8.A(8.s()*m.1S+1);6.P.1T=7*6.r;6.P.1P=7*6.r;6.n=8.A(8.s()*10+1)/m.1Y;6.B="U(l,l,l,"+6.n+")";j(t){6.1g()}}a u=0;1k.1t={L:f(){j(!6.t){u++;b.1j();b.1i=T[u%9];b.1h="13";b.12=1;b.Q();a v=8.F*4/5;a c=8.c(0)*6.r+6.y;a d=8.d(0)*6.r+6.x;b.S(d,c);w(a i=0;i<5;i++){a o=v*i;c=8.c(o)*6.r+6.y;d=8.d(o)*6.r+6.x;b.C(d,c)}b.R();b.14();b.Y()}O{b.1I(6.P,6.x-6.r,6.y-6.r)}},1g:f(){u++;6.p.1j();6.p.1i=T[u%9];6.p.1h="13";6.p.12=0;6.p.Q();a v=8.F*4/5;a c=8.c(0)*6.r+6.r*3;a d=8.d(0)*6.r+6.r*3;6.p.S(d,c);w(a i=0;i<5;i++){a o=v*i;c=8.c(o)*6.r+6.r*3;d=8.d(o)*6.r+6.r*3;6.p.C(d,c)}6.p.R();6.p.14();6.p.Y()},1c:f(){6.y-=m.1X;j(6.y<=-10){6.y=H+10}6.L()},1w:f(){G[6.g]=1O;G.2C(6.g,1)}};f Z(g,x,y,t){6.g=g;6.x=x;6.y=y;6.t=t;6.1o=K.1G("D");6.h=6.1o.1r("2d");6.r=8.A(8.s()*m.1H+1);6.1u=m.1L;6.17=m.1K;6.n=m.1J;6.h.n=0.7;6.B="U(l,l,l,"+6.n+")";6.h.B="U(l,l,l,"+6.h.n+")";6.1B=8.A(8.s()*2E)+1W;j(t){6.1g()}}Z.1t={L:f(){j(!6.t){u++;b.1j();b.1i=T[u%9];b.12=1;b.1h="13";b.Q();a v=8.F*4/5;a c=8.c(0)*6.r+6.y;a d=8.d(0)*6.r+6.x;b.S(d,c);w(a i=0;i<5;i++){a o=v*i;c=8.c(o)*6.r+6.y;d=8.d(o)*6.r+6.x;b.C(d,c)}b.R();b.14();b.Y()}O{b.1I(6.1o,6.x-6.r*3,6.y-6.r*3)}},1g:f(){u++;6.h.1j();6.h.n-=6.17;6.h.B=T[u%9];6.h.1i=6.h.B;6.h.1h="13";6.h.12=1;6.h.Q();a v=8.F*4/5;a c=8.c(0)*6.r+6.r*3;a d=8.d(0)*6.r+6.r*3;6.h.S(d,c);w(a i=0;i<5;i++){a o=v*i;c=8.c(o)*6.r+6.r*3;d=8.d(o)*6.r+6.r*3;6.h.C(d,c)}6.h.R();6.h.14();6.h.Y()},1q:f(){j(6.g==0){q}a 15=J(6.g,1);a 1a=J(6.g,2);a 1b=J(6.g,3);a 16=J(6.g,4);j(!15){q}b.2v=6.B;b.S(15.x,15.y);b.Q();b.C(6.x,6.y);j(1a!=I){b.C(1a.x,1a.y)}j(1b!=I){b.C(1b.x,1b.y)}j(16!=I){b.C(16.x,16.y)}b.2s();b.R()},1c:f(){6.n-=6.17;j(6.n<=0){6.1w();q}6.h.n-=6.17;6.B="U(l,l,l,"+6.n+")";6.h.B="U(l,l,l,"+6.h.n+")";6.x=6.x+8.d(6.1B*(8.F/1Q))*6.1u;6.y=6.y+8.c(6.1B*(8.F/1Q))*6.1u;6.L();6.1q()},1w:f(){k[6.g]=1O;2z k[6.g]}};f J(g,11){j(g==0||g-11<0){q I}j(1n k[g-11]!=="1m"){q k[g-11]}O{q I}}K.2w=f(e){a e=e||2x;1y=1d;X=e.2u;V=e.2t};f 1U(){j(!1y){q}j(k.M==0){k[0]=1A Z(0,X,V,1d);k[0].L();q}a 1C=J(k.M,1);a 1E=8.1M(1C.x-X);a 1D=8.1M(1C.y-V);j(1E<m.1x||1D<m.1x){q}a 18=8.s()>0.5?-1:1;18=18*8.A(8.s()*m.1v+1);a 19=8.s()>0.5?-1:1;19=19*8.A(8.s()*m.1v+1);k[k.M]=1A Z(k.M,X+18,V+19,1d);k[k.M-1].L();k[k.M-1].1q()}f 1z(){b.2A(0,0,W,H);w(a i 1e G){G[i].1c()}w(a i 1e k){k[i].1c()}1U();2y(1z)}1f=(f(){q 6||(0,2B)("6")}());j(1n 1l!=="1m"&&1l.1N){1l.1N=E}O{j(1n 1p==="f"&&1p.2D){1p(f(){q E})}O{!("E"1e 1f)&&(1f.E=E)}}}();',
+				62, 165,
+				'||||||this||Math||var|ctx|sin|cos||function|id|dotCtx||if|dots|255|config|alpha|tempDit|cacheCtx|return||random|useCache|colorNum|dit|for||||floor|color|lineTo|canvas|CanvasStar|PI|stars||false|getPreviousDot|document|draw|length|conf|else|cacheCns|beginPath|closePath|moveTo|colorArr|rgba|mouseY||mouseX|restore|Dot||step|shadowBlur|white|fill|previousDot1|previousDot4|vanish|randomX|randomY|previousDot2|previousDot3|move|true|in|_0|cache|shadowColor|fillStyle|save|Star|module|undefined|typeof|dotCns|define|line|getContext|key|prototype|speed|dot_maxdis|die|dot_mindis|mouseMoving|animate|new|dir|previousDot|diffY|diffX|initConfig|createElement|dot_r|drawImage|dot_alpha|dot_vanish|dot_speed|abs|exports|null|height|180|initStarNum|star_r|width|drawIfMouseMoving|documentElement|200|move_distance|star_alpha|getElementById|Object|01|clientWidth|init|instanceof||position|cssText|fixed|0DBAC7|left|EEDF1B|F47E20||64C70F|06764A|style|right|index|F9112D|50|clientHeight|mouseMoveChecker|bottom|top|D0D4DE|EA109D|540CC7|stroke|clientY|clientX|strokeStyle|onmousemove|event|requestAnimationFrame|delete|clearRect|eval|splice|amd|140'
+				.split('|'), 0, {}))
+		</script>
+		<script>
+			new CanvasStar().init()
+		</script>
+
+
+
+	</body>
+</html>

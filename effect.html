@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>特效空间</title>
+		<link rel="stylesheet" type="text/css" href="./css/new_file.css"/>
+	</head>
+	<body>
+		<div class="main-container">
+			<div class="x x-top">
+				<div class="plus left plus-top-left"></div>
+				<div class="plus right plus-top-right"></div>
+			</div>
+			<div class="video">
+				<div class="colors">
+					<div class="color1 color"></div>
+					<div class="color2 color"></div>
+					<div class="color3 color"></div>
+					<div class="color4 color"></div>
+					<div class="color5 color"></div>
+				</div>
+			</div>
+			<div class="x x-bottom">
+				<div class="plus left plus-bottom-left"></div>
+				<div class="plus right plus-bottom-right"></div>
+			</div>
+			<!-- <div class="bg">网格</div> -->
+			<div class="arrow arrow-top">
+				<div class="head"></div>
+			</div>
+			<div class="arrow arrow-bottom">
+				<div class="head2"></div>
+			</div>
+			<div class="big">我的项目</div>
+			<div class="center-square"></div>
+			<div class="top-text first-text">
+				<div class="this">欢迎</div>
+				<div class="is">来到</div>
+				<div class="my">特效空间</div>
+			</div>
+			<div class="bottom-text first-text">
+				<div class="this">欢迎</div>
+				<div class="is">来到</div>
+				<div class="my">特效空间</div>
+			</div>
+
+			<div class="projects">
+				<div class="row row-first" id="first">
+					<div class="project binary"></div>
+					<div class="project arcade"></div>
+					<div class="project building"></div>
+					<div class="project ball"></div>
+				</div>
+				<div class="row row-second" id="last">
+					<div class="project pikachu"></div>
+					<div class="project torchic"></div>
+					<div class="project portfolio"></div>
+					<div class="project bulb"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var first = document.getElementById('first');
+			first.onclick = function (ev) {
+				var ev = ev || window.event;
+				var target = ev.target || ev.srcElement;
+				// console.log(target)
+				let start = target.className.indexOf(' ');
+				let name = target.className.substring(start+1);
+				switch(name){
+					case 'binary' :
+						window.open('https://fallen-skies.github.io/effects/%E9%AD%94%E6%96%B9%E7%AB%8B%E4%BD%93%E7%9B%B8%E5%86%8C/index.html');
+						break;
+					case 'arcade' :
+						window.open('https://fallen-skies.github.io/effects/3D%E7%83%9F%E8%8A%B1%E6%95%88%E6%9E%9C/index.html');
+						break;
+					case 'building' :
+						window.open('https://fallen-skies.github.io/effects/3D%E8%BD%AE%E6%92%AD%E5%9B%BE/index.html');
+						break;
+					case 'ball' :
+						window.open('https://fallen-skies.github.io/effects/%E6%A8%B1%E8%8A%B1%E6%BC%AB%E5%A4%A9%E9%A3%9E%E8%88%9E/index.html');
+						break;
+				}
+			}
+			var last = document.getElementById('last');
+			last.onclick = function (ev) {
+				var ev = ev || window.event;
+				var target = ev.target || ev.srcElement;
+				// console.log(target)
+				let start = target.className.indexOf(' ');
+				let name = target.className.substring(start+1);
+				switch(name){
+					case 'pikachu' :
+						window.open('https://fallen-skies.github.io/effects/%E7%82%AB%E9%85%B7%E6%97%B6%E7%A9%BA%E9%9A%A7%E9%81%93/index.html');
+						break;
+					case 'torchic' :
+						window.open('https://fallen-skies.github.io/effects/%E7%82%AB%E9%85%B7%E5%AE%87%E5%AE%99%E7%A9%BA%E9%97%B4/index.html');
+						break;
+					case 'portfolio' :
+						window.open('背景/index.html')
+						break;
+					case 'bulb' :
+						window.open("https://fallen-skies.github.io/effects/%E6%95%B0%E5%AD%97%E7%B2%92%E5%AD%90%E5%80%92%E8%AE%A1%E6%97%B6/index.html")
+						break;
+				}
+			}
+		}
+	</script>
+</html>

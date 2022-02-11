@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>Web前端简历</title>
+		<link rel="stylesheet" type="text/css" href="css/effects.css"/>
+		<link rel="stylesheet" type="text/css" href="css/jianli.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+	</head>
+	<script src="js/TweenMax.min.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<!-- <div class="kc">
+			<div class="kc-x"></div>
+			<div class="kc-t"><p>欢迎进入本网站！！！</p></div>
+			<div class="kc-b"><p><span class="jia">0</span><span>%</span></p></div>
+		</div> -->
+		<div class="Countdown">
+			<canvas id="canvas-number" width="680" height="420"></canvas>
+			<canvas id="canvas-dots" width="1920" height="969"></canvas>
+		</div>
+		<div class="Channel">
+			<css-doodle use="var(--rule)"></css-doodle>
+		</div>
+		<canvas id="canvas"></canvas>
+		<div class="bgs"></div>
+		<section class="zhengping one">
+			<div class="beijing">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div class="name">
+				<div>
+				<h1 id="jieshao"></h1>
+				<h2 id="jieshao1"></h2>
+				</div>
+			</div>
+			<div class="xiaye">
+				<i class="iconfont icon-icon_arrow_down"></i>
+				<i class="iconfont icon-icon_arrow_down"></i>
+			</div>
+		</section>
+		<section class="zhengping two">
+			<div class="tw-bj"></div>
+			<nav class="nav">
+				<div class="col-sm-3 col-xs-6 two-1">
+					<div class="nav-img"><img src="img/icoBig.png" id="img" /></div>
+					<div class="two-2">
+					    <p>resume</p>
+					    <div>前端工程师</div>
+					</div>
+				</div>
+				<div class="col-sm-4 col-sm-offset-5  two-3 col-xs-6">
+					<ul>
+						<li class=""><div class="music"><i class="i-1" onclick="play()" ><img src="img/au1.png"/>
+						</i><i class="i-2" onclick="pause()"><img src="img/au2.png"/></i><b class="b-1" onclick="play()">
+							<img src="img/au3.png"/></b><b class="b-2" onclick="pause()"><img src="img/au4.gif"/></b>
+							<video id="video" loop="loop" autoplay="autoplay" hidden="hidden">
+								<source src="music/yinyue.mp3" type="audio/mpeg">
+							</video>
+						</div></li>
+						<li><a href="#">首页<span style="background: rgba(235,132,144,0.5);"></span></a></li>
+						<li><a href="https://weibo.com/u/5981882728/home?topnav=1&wvr=6">博客<span style="background: rgba(129,242,129,0.5);"></span></a></li>
+						<li><a href="#">简历<span style="background: rgba(229,195,137,0.5);"></span></a></li>
+						<li><a href="effect.html">关于<span style="background: rgba(127,127,230,0.5);"></span></a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="container">
+			<!--关于我-->
+			<div class="gyw row">
+				<div class="col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5 text-center col-xs-6 col-xs-offset-3">
+					<h1></h1>
+					<p></p>
+				</div>
+			</div>
+			<!--关于我的介绍-->
+			<div class="w-js row">
+				<div class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+					<div class="col-sm-3 col-xs-6">
+						<p class="tubiao"><span><img src="img/wo1.png" class="img-responsive"/></span></p>
+						<div class="xiexian"></div>
+						<div class="wo">
+							<p>学历</p>
+							<div>xx</div>
+						</div>
+					</div>
+					<div class="col-sm-3 col-xs-6">
+						<p class="tubiao"><span><img src="img/wo2.png" class="img-responsive"/></span></p>
+						<div class="xiexian"></div>
+						<div class="wo">
+							<p>年龄</p>
+							<div>23</div>
+						</div>
+					</div>
+					<div class="col-sm-3 col-xs-6">
+						<p class="tubiao"><span><img src="img/wo3.png" class="img-responsive"/></span></p>
+						<div class="xiexian"></div>
+						<div class="wo">
+							<p>坐标</p>
+							<div>北京</div>
+						</div>
+					</div>
+					<div class="col-sm-3 col-xs-6">
+						<p class="tubiao"><span><img src="img/wo4.png" class="img-responsive"/></span></p>
+						<div class="xiexian"></div>
+						<div class="wo">
+							<p>状态</p>
+							<div>在职</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--学校-->
+			<div class="xuexiao row">
+				<div class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+					<ul>
+						<li id="li"></li>
+					</ul>
+					<div class="left-b"></div>
+					<div class="right-b"></div>
+				</div>
+			</div>
+		</div>
+		</section>
+		<section class="zhengping three">
+			<div class="t-bj"></div>
+			<div class="container">
+			<!--前端技能-->
+			<div class="qdjn row">
+				<div class="col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5 text-center col-xs-6 col-xs-offset-3">
+					<h1></h1>
+					<p></p>
+				</div>
+			</div>
+			<!--技能简介-->
+			<div class="t-jn row">
+				<div class="col-sm-12 text-center">前端的知识面非常广泛,吃透它需要具有持之以恒的精神。
+					而在前端开发的学习工作中，重中之重就是对于原生javascript的理解和把握，从而在此基础上学习新的框架（JQuery、Bootstrap、Vue等）</div>
+			</div>
+			<!--专业技能-->
+			<div class="t-zy row">
+				<div class="col-sm-12 col-md-12">
+					<div class="col-md-2 col-xs-4"><div class="t-fy"><div class="jineng"><div><p><img src="img/c1.png"/></p><div>HTML</div></div><ul class="html"></ul></div></div></div>
+					<div class="col-md-2 col-xs-4"><div class="t-fy"><div class="jineng"><div><p><img src="img/c2.png"/></p><div>CSS</div></div><ul class="css"></ul></div></div></div>
+					<div class="col-md-2 col-xs-4"><div class="t-fy"><div class="jineng"><div><p><img src="img/c3.png"/></p><div>JavaScript</div></div><ul class="js"></ul></div></div></div>
+					<div class="col-md-2 col-xs-4"><div class="t-fy"><div class="jineng"><div><p><img src="img/c4.png"/></p><div>AJAX</div></div><ul class="ajax"></ul></div></div></div>
+					<div class="col-md-2 col-xs-4"><div class="t-fy"><div class="jineng"><div><p><img src="img/c5.png"/></p><div>Bootstrap</div></div><ul class="bootstrap"></ul></div></div></div>
+					<div class="col-md-2 col-xs-4"><div class="t-fy"><div class="jineng"><div><p><img src="img/c6.png"/></p><div>Vue.js</div></div><ul class="vue"></ul></div></div></div>
+				</div>
+			</div>
+			</div>
+		</section>
+		<section class="zhengping four">
+			<div class="f-bj"></div>
+			<div class="container">
+				<!--个人作品-->
+			<div class="grzp row">
+				<div class="col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5 text-center col-xs-6 col-xs-offset-3">
+					<h1></h1>
+					<p></p>
+				</div>
+			</div>
+			<div class="zuopin row">
+				<div class="col-sm-4 col-xs-4"><a href="#"><img src="img/jianli.png"/></a></div>
+				<div class="col-sm-4 col-xs-4"><a href="https://www.bookuu.com/index.php"><img src="img/boku.png"/></a></div>
+				<div class="col-sm-4 col-xs-4"><a href="http://www.halv.com/"><img src="img/halv.png"/></a></div>
+			</div>
+			<div class="gengduo row">更多作品，待更新...</div>
+			</div>
+		</section>
+		<section class="zhengping five">
+			<div class="fi-bj"></div>
+					<!--工作经验-->
+			<div class="container">
+			<div class="gzjy row">
+				<div class="col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5 text-center col-xs-6 col-xs-offset-3">
+					<h1></h1>
+					<p></p>
+				</div>
+			</div>
+			<div class="jingli row">
+				<div class="jy-1"><span>EXP1</span><div><h4>xxxxxx有限公司</h4><p>20xx.xx~20xx.xx</p><ul></ul></div></div>
+				<div class="jy-2"><span>EXP2</span><div><h4>xxxxxx有限公司</h4><p>20xx.xx~20xx.xx</p><ul></ul></div></div>
+				<div class="f-width"><span>EXP3</span><div><h4>在职状态</h4></div></div>
+			</div>
+			</div>
+		</section>
+		<section class="zhengping six">
+			<div class="s-bj"></div>
+			<!--联系我-->
+			<div class="container">
+			<div class="lxw row">
+				<div class="col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5 text-center col-xs-6 col-xs-offset-3">
+					<h1></h1>
+					<p></p>
+				</div>
+			</div>
+			<!--自荐-->
+			<div class="zj">
+				<div class="lg"><span class="span1" id="span1">灵感</span> <span id="span2">代码</span> <span id="span3">梦想</span> <span id="span4">未来</span></div>
+				<div class="s-js">
+					<ul>
+						<li id="s-js"></li>
+					</ul>
+				</div>
+			</div>
+			<div class="dingbu"><i class="iconfont icon-icon_arrow_up"></i><i class="iconfont icon-icon_arrow_up"></i></div>
+			</div>
+		</section>
+		<div class="lianxiwo">
+			<p>联系我</p>
+			<div>
+				<p><img src="img/weixin.jpg" title="加我微信" class="img-responsive"/></p>
+				<div><h4>NAME</h4><p>name</p></div>
+				<div><h4>AGE</h4><p>21</p></div>
+				<div><h4>TEL</h4><p>158 3864 61**</p></div>
+				<div><h4>EMAIL</h4><p style="border: 0;">E-mail@163.com</p></div>
+			</div>
+		</div>
+		<div class="shu">
+			<div class="yuan"><span></span></div>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/effects.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/css-doodle.min.js"></script>
+	<script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/beijing.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/texiao.js" type="text/javascript" charset="utf-8"></script>
+	<!-- <script src="js/daziji.js" type="text/javascript" charset="utf-8"></script> -->
+	<script src="js/scroll.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/json.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var video = document.getElementById("video");
+		//	音乐播放
+		function play(){
+			video.play();
+		}
+		//	音乐暂停
+		function pause(){
+			video.pause();
+		}
+		setTimeout(()=>{
+			play();
+		},1000);
+	</script>
+</html>
+
