@@ -251,6 +251,8 @@ $(function() {
 		$(".yuan").stop().animate({top:index * 30},600);
 		one();
 	});
-	// document.oncontextmenu = function(e){return false;}   
-	// document.onkeydown=function(e){var e=window.event||e;if(e.keyCode==123){e.keyCode = 0;e.returnValue = false;return false;};};
+	document.oncontextmenu = function(e){return false;}   
+	document.onkeydown=function(e){var e=window.event||e;
+		if(e.keyCode==123){e.keyCode = 0;e.returnValue = false;return false;}else if((e.ctrlKey)&&(e.keyCode==83)){return false;}
+	};
 })
