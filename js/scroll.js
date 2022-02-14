@@ -2,7 +2,6 @@ $(function() {
 	var flag = true;
 	var index = 0;
 	var stepList = [];
-	$(".Channel").hide();
 	function bwidth(){
 		var b_width=$("body").width();
 		if (b_width>768) {
@@ -64,7 +63,7 @@ $(function() {
 	
 	let Interval = setInterval(() =>{
 		if (sessionStorage.getItem('step') == 1) {
-			$(".Channel").show();
+			$(".Channel").css("visibility",'visible');
 			$(".Countdown").hide();
 			sessionStorage.removeItem('step');
 			setTimeout(()=>{
